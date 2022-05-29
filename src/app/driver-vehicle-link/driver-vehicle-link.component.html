@@ -1,0 +1,59 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="col-md-4">
+        <div class="form-group ">
+            <label for="dlNumber">Driver License Number</label>
+            <input 
+                required
+                ngModel
+                name="dlNumber" 
+                #dlNumber="ngModel"
+                id="dlNumber" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="dlNumber?.touched && dlNumber?.invalid"class="alert alert-danger">
+                <div *ngIf="dlNumber?.errors?.['required']">Driver License Number is required</div>
+                <div *ngIf="dlNumber?.errors?.['minlength']">Driver License Number should be minimum 3 characters</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="registrationNumber">Vehicle</label>
+            <input 
+                required
+                ngModel
+                name="registrationNumber" 
+                #dlNumber="ngModel"
+                id="registrationNumber"
+                id="registrationNumber" 
+                type="text" 
+                class="form-control">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+</form>
+
+<div class="row col-md-8">
+    <hr class="my-4">
+    <h4 class="mb-3">Driver Vehicle Assignment</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Driver License Number</th>
+          <th>Vehicle Registration Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of driverAssignment">
+          <td>
+            {{ item.driverLicenseNumber }}
+          </td>
+          <td>
+            {{item.registrationNumber}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

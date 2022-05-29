@@ -1,0 +1,222 @@
+
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="row col-md-12">
+      <div class="form-group col-sm-2">
+          <label for="regNum">Registration Number</label>
+          <input 
+              required
+              ngModel
+              #regNum="ngModel"
+              name = "regNum" 
+              
+              id="regNum" 
+              type="text" 
+              class="form-control">
+          <div *ngIf="regNum?.touched && regNum?.invalid"class="alert alert-danger">
+              <div *ngIf="regNum?.errors?.['required']">Registration Number is required</div>
+              <div *ngIf="regNum?.errors?.['minlength']">Registration Number should be minimum {{regNum ?.errors?.['minlength']}} characters</div>
+          </div>
+      </div>
+      <div class="form-group col-sm-2">
+          <label for="chasisNum">Chasis Number</label>
+          <input 
+              ngModel
+              id="chasisNum" 
+              name = "chasisNum" 
+              type="text" 
+              #chasisNum="ngModel"
+              class="form-control">
+      </div>
+      <!--<div class="form-group col-sm-4">
+          <label for="engineNum">Engine Number</label>
+          <input 
+              ngModel
+              name = "engineNum"
+              id="engineNum" 
+              #engineNum="ngModel"
+              type="text" 
+              class="form-control">
+      </div>-->
+      <div class="col-sm-12">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+  
+    <div class="row col-md-8">
+        <h4 class="mb-3">Vehicle Details</h4>
+        <form>
+          <div class="row g-3">
+            <div class="col-sm-3">
+              <label for="regNumber" class="form-label">Registration</label>
+              <input type="text" class="form-control" id="regNumber" [value]="regNumber" 
+              name="regNumber" 
+              [disabled]="true">
+            </div>
+            <div class="col-sm-3">
+              <label for="chasisNumber" class="form-label">Chasis Number</label>
+              <input type="text" class="form-control" id="chasisNumber" [value]="chasisNumber" [disabled]="true">
+            </div>
+            <div class="col-sm-3">
+              <label for="engineNumber" class="form-label">Engine Number</label>
+              <input type="text" class="form-control" id="engineNumber" [value]="engineNumber" [disabled]="true">
+            </div>
+
+        </div>
+            <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="ownerName" class="form-label">Owner name</label>
+                  <input type="text" class="form-control" id="ownerName" placeholder="" [value]="ownerName"
+                  name="ownerName" 
+                  [disabled]="true">
+                </div>
+                <div class="col-sm-4">
+                  <label for="address" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="address" [value]="address" [disabled]="true">
+                </div>
+
+
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-2">
+                  <label for="maker" class="form-label">Maker</label>
+                  <input type="maker" class="form-control" id="email" [value]="maker" [disabled]="true">
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="certificateDate" class="form-label">Certificate Date</label>
+                    <input type="certificateDate" class="form-control" id="email" [value]="certificateDate" [disabled]="true">
+                </div>
+
+                <div class="col-sm-2">
+                  <label for="fuel" class="form-label">Fuel</label>
+                  <input type="text" class="form-control" id="fuel" placeholder="" [value]="fuel" [disabled]="true">
+                </div>
+                <div class="col-sm-2">
+                  <label for="marufacturingYear" class="form-label">Maruf. Year</label>
+                  <input type="text" class="form-control" id="marufacturingYear" [value]="marufacturingYear" [disabled]="true">
+                </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="insurancePolicyNum" class="form-label">Insurance Policy Number</label>
+                <input type="text" class="form-control" id="insurancePolicyNum" placeholder="" [value]="insurancePolicyNum"
+                name="insurancePolicyNum" 
+                [disabled]="true">
+              </div>
+  
+              <div class="col-sm-5">
+                <label for="insuranceCompany" class="form-label">Insurance Company</label>
+                <input type="text" class="form-control" id="insuranceCompany" placeholder="" [value]="insuranceCompany" [disabled]="true">
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="insuranceUpto" class="form-label">Insurance Upto</label>
+                <input type="text" class="form-control" id="insuranceUpto" placeholder="" [value]="insuranceUpto"
+                name="insuranceUpto" 
+                [disabled]="true">
+              </div>
+  
+              <div class="col-sm-5">
+                <label for="insuranceStatus" class="form-label">Insurance Status</label>
+                <input type="text" class="form-control" id="insuranceStatus" placeholder="" [value]="insuranceStatus" [disabled]="true">
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="puc" class="form-label">PUC Check</label>
+                <input type="url" class="form-control" id="puc" placeholder="NA" [value]=""
+                name="puc" 
+                [disabled]="true"
+                >
+                
+              </div>
+  
+              <div class="col-sm-5">
+                <label for="fitnessCert" class="form-label">Fitness Certificate</label>
+                <input type="url" class="form-control" id="fitnessCert" placeholder="NA" [value]="" [disabled]="true">
+              </div>
+            </div>
+        </form>
+      </div> 
+      <div>
+        
+      </div>
+      <div class="row col-md-4">
+        <h4 class="mb-3">Challan Details</h4>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="col-sm-6">
+            <label for="openChallans" class="form-label">Challan open</label>
+            <!--<input type="text" class="form-control" id="openChallans" placeholder="" [value]="openChallans"
+            name="openChallans" 
+            [disabled]="true">-->
+          </div>
+          <div class="col-sm-6">
+            <a href="https://www.w3schools.com/"> 3</a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="col-sm-6">
+            <label for="paidChallans" class="form-label">Challan Paid</label>
+            </div>
+            <!--<input type="url" class="form-control" id="paidChallans" [value]="paidChallans" [disabled]="true">-->
+            <a href="https://www.w3schools.com/"> 5</a>
+          </div>
+         
+      </div>
+      <div class="row col-sm-6">
+        <label for="currentDriver" class="form-label">Current Driver</label>
+          Test Driver
+      </div>
+      <div class="row col-sm-8">
+        <label for="currentDriver" class="form-label">Eway Bill details in Current Trip</label>
+        NA
+      </div>
+      
+      </div>
+      <div class="row col-md-8">
+        <hr class="my-4">
+        <h4 class="mb-3">Fastag Details</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Sequence Number</th>
+              <th>Vehicle Type</th>
+              <th>Toll Plaza ID</th>
+              <th>Toll Plaza Location</th>
+              <th>Toll Read Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fastag of fastagDetails">
+              <td>
+                {{ fastag.sequenceNum }}
+              </td>
+              <td>
+                {{fastag.vehicleType}}
+              </td>
+              <td>
+                {{fastag.tollPlazaId}}
+              </td>
+              <td>
+                {{fastag.tollLocation}}
+              </td>
+              <td>
+                {{fastag.readTime}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+<!--<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; 2017–2021 Company Name</p>
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">Privacy</a></li>
+    <li class="list-inline-item"><a href="#">Terms</a></li>
+    <li class="list-inline-item"><a href="#">Support</a></li>
+  </ul>
+</footer>-->

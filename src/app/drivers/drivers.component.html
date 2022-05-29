@@ -1,0 +1,105 @@
+
+ <div class="row col-md-12">
+ <form #f="ngForm" (ngSubmit)="submit(f)" border-style="inset">
+  <div class="row col-md-4">
+        <div class="form-group">
+            <label for="dlNumber">Driver License Number</label>
+            <input 
+                required
+                ngModel
+                name="dlNumber" 
+                #dlNumber="ngModel"
+                id="dlNumber" 
+                type="text" 
+                (keyup.enter)="onKeyUp(dlNumber)"
+                class="form-control">
+            <div *ngIf="dlNumber?.touched && dlNumber?.invalid"class="alert alert-danger">
+                <div *ngIf="dlNumber?.errors?.['required']">Driver License Number is required</div>
+                <div *ngIf="dlNumber?.errors?.['minlength']">Driver License Number should be minimum 3 characters</div>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label for="dob">Date Of Birth</label>
+            <input 
+                formControlName = "dob"
+                id="dob" 
+                type="text" 
+                class="form-control">
+        </div>-->
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+<hr class="my-4">
+
+<div class="row col-md-4">
+    <form>
+        <h4 class="mb-3">Driver photo</h4>
+        <div class="card" style="width: 15rem;">
+            <img class="card-img-top" [src]="dummyImage" width="300">
+            <div class="card-body">
+            <h5 class="card-title">{{firstName}} {{lastName}}</h5>
+            </div>
+        </div>
+    </form>
+</div>
+    <main>
+        <div class="row col-md-8">
+            <h4 class="mb-3">Driver details</h4>
+            <form>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">First name</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" [value]="firstName"
+                      name="firstName" 
+                      [disabled]="true">
+                    </div>
+        
+                    <div class="col-sm-6">
+                      <label for="lastName" class="form-label">Last name</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="" [value]="lastName" [disabled]="true">
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="email" class="form-label">Date of Birth </label>
+                      <input type="email" class="form-control" id="email" [value]="dob" [disabled]="true">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="email" class="form-label">Email </label>
+                        <input type="email" class="form-control" id="email" [value]="email" [disabled]="true">
+                    </div>
+                </div>
+                  <div class="col-12">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" [value]="address" [disabled]="true">
+                  </div>
+                  
+                  <div>
+                  <div class="col-12">
+                    <label for="address2" class="form-label">Address 2</label>
+                    <input type="text" class="form-control" id="address2" [value]="address2" [disabled]="true">
+                  </div>
+                </div>
+      
+                  <div class="col-12">
+                    <label for="zip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="zip" placeholder="" [value]="zip" [disabled]="true">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="currentVehicle" class="form-label">Current Vehicle</label>
+                      Test Vehicle
+                  </div>
+                  <div class="col-12">
+                    <label for="currentDriver" class="form-label">Eway Bill details in Current Trip</label>
+                    NA
+                  </div>
+            </form>
+            
+          </div> 
+    </main>
+    <hr class="my-4">
+
